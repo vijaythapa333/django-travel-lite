@@ -294,11 +294,13 @@
 						<div class="col-md-4 animate-box">
 							<div class="feature-left">
 								<span class="icon">
+									<a href="{% url 'tour:activity-detail' activity.activity_slug %}">
 									{% if activity.activity_icon %}
 										<img src="{{  activity.activity_icon }}" alt="{{ activity.activity_title }}" class="img-responsive">
 									{% else %}
 										<i class="icon-hotairballoon"></i>
 									{% endif %}
+									</a>
 								</span>
 								<div class="feature-copy">
 									<h3>{{ activity.activity_title }}</h3>
