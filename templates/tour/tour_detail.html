@@ -1,0 +1,144 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+	{% block content %}
+	
+
+				<!-- Blogs Starts Here -->
+		{% if tour %}
+
+		<div id="fh5co-blog-section" class="fh5co-section-gray">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 heading-section animate-box">
+
+						<h3>{{ tour.tour_title }}</h3>
+
+						{% if tour.tour_image %}
+							<img src="{{ tour.tour_image.url }}" class="img-responsive" alt="{{ tour.tour_title }}">
+							<br>
+						{% endif %}
+
+						<div>
+							{% if tour.tour_region %}
+								{% for region in tour.tour_region.all %}
+									<button type="button" class="btn btn-primary">
+									 {{region}}  <span class="badge badge-light">4</span>
+									</button>
+								{% endfor %}
+							{% else %}
+								No Region
+							{% endif %}
+						</div>
+						<br>
+
+						{{ tour.tour_description }}
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{% endif %}
+		<!-- Blog Ends Here -->
+		
+		<!-- Similar Tours Starts Here -->
+		{% if similar_tours %}
+			<div id="fh5co-tours" class="fh5co-section-gray">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+							<h3>Similar Tours</h3>
+							<p>Best Regions to find adventure activities like Trekking, Mountain Climbing, Rafting, Canyoning and Many More.</p>
+						</div>
+					</div>
+					<div class="row">
+
+						{% for tour in similar_tours %}
+							<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+								<div href="#">
+									{% if tour.tour_image %}
+									<img src="{{ tour.tour_image.url }}" alt="{{ tour.tour_title }}" class="img-responsive">
+									{% else %}
+									<img src="{% static 'images/no-image.jpg' %}" alt="{{ tour.tour_title }}" class="img-responsive">
+									{% endif %}
+
+									<div class="desc">
+										<span></span>
+										<h3>{{ tour.tour_title }}</h3>
+										{% if tour.tour_duration %}
+											<span>{{ tour.tour_duration }} Days</span>
+										{% endif %}
+										
+										{% if tour.tour_duration %}
+											<span class="price">{{ tour.tour_altitude }} <small>mts</small></span>
+										{% endif %}
+
+										<a class="btn btn-primary btn-outline" href="{% url 'tour:tour-detail' tour.tour_slug %}">Read More <i class="icon-arrow-right22"></i></a>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+
+						<div class="col-md-12 text-center animate-box">
+							<p><a class="btn btn-primary btn-outline btn-lg" href="{% url 'tour:all-tours' %}">See All Tours <i class="icon-arrow-right22"></i></a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Similar Tours Ends Here -->
+
+			<!-- Other Tours Starts Here -->
+		{% elif other_tours %}
+			<div id="fh5co-tours" class="fh5co-section-gray">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+							<h3>Other Tours</h3>
+							<p>Best Regions to find adventure activities like Trekking, Mountain Climbing, Rafting, Canyoning and Many More.</p>
+						</div>
+					</div>
+					<div class="row">
+
+						{% for tour in other_tours %}
+							<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+								<div href="#">
+									{% if tour.tour_image %}
+									<img src="{{ tour.tour_image.url }}" alt="{{ tour.tour_title }}" class="img-responsive">
+									{% else %}
+									<img src="{% static 'images/no-image.jpg' %}" alt="{{ tour.tour_title }}" class="img-responsive">
+									{% endif %}
+
+									<div class="desc">
+										<span></span>
+										<h3>{{ tour.tour_title }}</h3>
+
+										{% if tour.tour_duration %}
+											<span>{{ tour.tour_duration }} Days</span>
+										{% endif %}
+
+										{% if tour.tour_duration %}
+											<span class="price">{{ tour.tour_altitude }} <small>mts</small></span>
+										{% endif %}
+
+										<a class="btn btn-primary btn-outline" href="{% url 'tour:tour-detail' tour.tour_slug %}">Read More <i class="icon-arrow-right22"></i></a>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+
+						<div class="col-md-12 text-center animate-box">
+							<p><a class="btn btn-primary btn-outline btn-lg" href="{% url 'tour:all-tours' %}">See All Tours <i class="icon-arrow-right22"></i></a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+		<!-- Similar Tours Ends Here -->
+
+
+	
+	{% endblock content %}
+

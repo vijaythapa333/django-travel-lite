@@ -1,0 +1,73 @@
+{% load static %}
+
+<footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row row-bottom-padded-md">
+						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+							<h3>About Travel</h3>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						</div>
+						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+							<h3>Top Activities</h3>
+							<ul>
+								{% for activity in top_activities %}
+								<li><a href="{% url 'tour:activity-detail' activity.activity_slug %}">{{ activity.activity_title }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+							<h3>Popular Regions</h3>
+							<ul>
+								{% for region in popular_regions %}
+									<li><a href="{% url 'tour:region-detail' region.region_slug %}">{{ region.region_title }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+							<h3>Best Tours</h3>
+							<ul>
+								{% for tour in best_tours %}
+									<li><a href="{% url 'tour:tour-detail' tour.tour_slug %}">{{ tour.tour_title }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+
+						{% if recent_blogs %}
+						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+							<h3>Recent Blogs</h3>
+							<ul>
+								{% for blog in recent_blogs %}
+								<li><a href="{% url 'blog:blog-detail' blog.blog_slug %}">{{ blog.blog_title }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+						{% endif %}
+
+						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+							<h3>Quick Links</h3>
+							<ul>
+								{% for footer_page in footer_menu %}
+									<li><a href="{% url 'page:page-detail' footer_page.page_slug %}">{{ footer_page.page_title }}</a></li>
+								{% endfor %}
+								
+							</ul>
+						</div>
+					</div>
+
+					{% if socialmedias %}
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="fh5co-social-icons">
+								{% for socialmedia in socialmedias %}
+									<a href="{{ socialmedia.socialmedia_url }}" title="{{ socialmedia.socialmedia_title }}" target="_blank"><i class="{{ socialmedia.socialmedia_icon }}"></i></a>
+								{% endfor %}
+							</p>
+							<p>Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+						</div>
+					</div>
+					{% endif %}
+
+				</div>
+			</div>
+		</footer>

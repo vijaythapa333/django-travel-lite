@@ -1,0 +1,51 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+	{% block content %}
+	
+		<div class="fh5co-hero">
+			<div class="fh5co-overlay"></div>
+
+			{% if page.page_image %}
+				<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url({{ page.page_image.url  }});">
+			{% else %}
+				<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url({% static 'images/cover_bg_1.jpg' %});">
+			{% endif %}
+				<div class="desc">
+					<div class="container">
+						<div class="row">
+							
+							<div class="desc2 animate-box">
+								<div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
+									<p>&nbsp;</p>
+									<h2>{{ page.page_title }}</h2><!-- 
+									<h3>Fly to Hong Kong via Los Angeles, USA</h3>
+									<span class="price">$599</span> -->
+									<!-- <p><a class="btn btn-primary btn-lg" href="#">Get Started</a></p> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+		<!-- Detail Starts Here -->
+			<div id="fh5co-tours" class="fh5co-section-gray">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 heading-section animate-box">
+							<!-- <h3>Best Regions</h3> -->
+							<p>{{ page.page_description }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- Detail Ends Here -->
+
+	
+	{% endblock content %}
+

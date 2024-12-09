@@ -1,0 +1,44 @@
+{% load static %}
+
+	<body>
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+
+		<header id="fh5co-header-section" class="sticky-banner">
+			<div class="container">
+				<div class="nav-header">
+					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+					<h1 id="fh5co-logo"><a href="{% url 'page:home' %}"><i class="icon-airplane"></i>Travel</a></h1>
+					<!-- START #fh5co-menu-wrap -->
+					<nav id="fh5co-menu-wrap" role="navigation">
+						<ul class="sf-menu" id="fh5co-primary-menu">
+							<li class="active"><a href="{% url 'page:home' %}">Home</a></li>
+							{% for top_page in top_menu %}
+								<li><a href="{% url 'page:page-detail' top_page.page_slug %}">{{ top_page.page_title }}</a></li>
+							{% endfor %}
+
+							<li>
+								<a href="{% url 'tour:all-activities' %}" class="fh5co-sub-ddown">Activities</a>
+								<ul class="fh5co-sub-menu">
+									{% for activity in activity_menu %}
+										<li><a href="{% url 'tour:activity-detail' activity.activity_slug %}">{{ activity.activity_title }}</a></li>
+									{% endfor %}
+								</ul>
+							</li>
+							<li>
+								<a href="{% url 'tour:all-regions' %}" class="fh5co-sub-ddown">Regions</a>
+								<ul class="fh5co-sub-menu">
+									{% for region in region_menu %}
+										<li><a href="{% url 'tour:region-detail' region.region_slug %}">{{ region.region_title }}</a></li>
+									{% endfor %}
+								</ul>
+							</li>
+							<li><a href="{% url 'blog:all-blogs' %}">Blogs</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+
+		<!-- end:header-top -->

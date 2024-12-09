@@ -1,0 +1,83 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+	{% block content %}
+
+		
+		<!-- Regions Starts Here -->
+		{% if regions %}
+			<div id="fh5co-tours" class="fh5co-section-gray">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+							<h3>Best Regions</h3>
+							<p>Best Regions to find adventure activities like Trekking, Mountain Climbing, Rafting, Canyoning and Many More.</p>
+						</div>
+					</div>
+					<div class="row">
+
+						{% for region in regions %}
+							<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+								<div href="#">
+									{% if region.region_image %}
+									<img src="{{ region.region_image.url }}" alt="{{ region.region_title }}" class="img-responsive">
+									{% else %}
+									<img src="{% static 'images/no-image.jpg' %}" alt="Travel Nepal" class="img-responsive">
+									{% endif %}
+
+									<div class="desc">
+										<span></span>
+										<h3>{{ region.region_title }}</h3>
+										<span>3 nights + Flight 5*Hotel</span>
+										<span class="price">$1,000</span>
+										<a class="btn btn-primary btn-outline" href="#">Explore Tours <i class="icon-arrow-right22"></i></a>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+
+						
+					</div>
+					
+						<!-- Pagination Starts Here -->
+						{% if is_paginated %}
+							<div class="text-center">
+								<nav aria-label="Page navigation example">
+								  <ul class="pagination justify-content-center">
+								  	{% if page_obj.has_previous %}
+								  	<li class="page-item">
+								      <a class="page-link" href="?page=1" tabindex="-1" aria-disabled="true">&laquo; First</a>
+								    </li>
+								    <li class="page-item">
+								      <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
+								    </li>
+								    {% endif %}
+
+								    
+								    <li class="page-item active" aria-current="page">
+								      <a class="page-link" href="?page={{ page_obj.number }}"> Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} <span class="sr-only">(current)</span></a>
+								    </li>
+								    
+								    {% if page_obj.has_next %}
+								    <li class="page-item">
+								      <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+								    </li>
+								    <li class="page-item">
+								      <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+								    </li>
+								    {% endif %}
+
+								  </ul>
+								</nav>
+							</div>
+						{% endif %}
+						<!-- Pagination Ends Here -->
+				</div>
+			</div>
+		{% endif %}
+		<!-- Regions Ends Here -->
+	
+	{% endblock content %}
+
