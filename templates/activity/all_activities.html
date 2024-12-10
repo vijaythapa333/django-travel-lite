@@ -33,7 +33,7 @@
 								<div class="feature-copy">
 									<h3>{{ activity.activity_title }}</h3>
 									<p>{{ activity.activity_description|slice:":70" }} ...</p>
-									<p><a href="{% url 'tour:activity-detail' activity.activity_slug %}">Learn More</a></p>
+									<p><a href="{% url 'tour:activity-detail' activity.activity_slug %}">View Tours</a></p>
 								</div>
 							</div>
 						</div>
@@ -52,7 +52,7 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 						<h3>Recently Added Tours</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+						<p>Explore the newly handcrafted tours for you in the Himalayas.</p>
 					</div>
 				</div>
 			</div>
@@ -66,19 +66,30 @@
 								<div class="fh5co-blog animate-box">
 
 									{% if tour.tour_image %}
-										<a href="{% url 'tour:tour-detail' tour.tour_slug %}"><img class="img-responsive" src="{{ tour.tour_image.url }}" alt="{{ tour.tour_title }}"></a>
+										<a href="{% url 'tour:tour-detail' tour.tour_slug %}"><img class="img-responsive" src="{{ tour.tour_image.url }}" alt="{{ tour.tour_title }}" style="height:200px; width:100%;"></a>
 									{% else %}
-										<a href="{% url 'tour:tour-detail' tour.tour_slug %}"><img class="img-responsive" src="{% static 'images/no-image.jpg' %}" alt="{{ tour.tour_title }}"></a>
+										<a href="{% url 'tour:tour-detail' tour.tour_slug %}"><img class="img-responsive" src="{% static 'images/no-image.jpg' %}" alt="{{ tour.tour_title }}" style="height:200px; width:100%;"></a>
 									{% endif %}
 
 									<div class="blog-text">
 										<div class="prod-title">
 											<h3><a href="{% url 'tour:tour-detail' tour.tour_slug %}">{{ tour.tour_title }}</a></h3>
-											<span class="posted_by">{{ tour.tour_created_at }}</span>
-											<span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
+											
+											<div style="color:silver; margin-bottom:10px;">
+											{% if tour.tour_region %}
+												{% for region in tour.tour_region.all %}
+												<a href="{% url 'tour:region-detail' region.region_slug %}" style="color:silver;">{{ region }}</a>
+												{% endfor %}
+											{% endif %}
+
+											{% if tour.tour_duration %}
+											, {{ tour.tour_duration }} Days
+											{% endif %}
+											</div>
+											
 											<p>{{ tour.tour_description|slice:":150" }} ...</p>
 
-											<p><a href="{% url 'tour:tour-detail' tour.tour_slug %}">Read More...</a></p>
+											<p><a href="{% url 'tour:tour-detail' tour.tour_slug %}">Explore Now</a></p>
 										</div>
 									</div> 
 								</div>
