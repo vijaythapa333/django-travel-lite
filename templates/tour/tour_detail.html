@@ -60,9 +60,9 @@
 							<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
 								<div href="#">
 									{% if tour.tour_image %}
-									<img src="{{ tour.tour_image.url }}" alt="{{ tour.tour_title }}" class="img-responsive">
+									<img src="{{ tour.tour_image.url }}" alt="{{ tour.tour_title }}" class="img-responsive"  style="height:320px; width:100%;">
 									{% else %}
-									<img src="{% static 'images/no-image.jpg' %}" alt="{{ tour.tour_title }}" class="img-responsive">
+									<img src="{% static 'images/no-image.jpg' %}" alt="{{ tour.tour_title }}" class="img-responsive"  style="height:320px; width:100%;">
 									{% endif %}
 
 									<div class="desc">
@@ -76,7 +76,7 @@
 											<span class="price">{{ tour.tour_altitude }} <small>mts</small></span>
 										{% endif %}
 
-										<a class="btn btn-primary btn-outline" href="{% url 'tour:tour-detail' tour.tour_slug %}">Read More <i class="icon-arrow-right22"></i></a>
+										<a class="btn btn-primary btn-outline" href="{% url 'tour:tour-detail' tour.tour_slug %}">Explore Now <i class="icon-arrow-right22"></i></a>
 									</div>
 								</div>
 							</div>
@@ -123,7 +123,7 @@
 											<span class="price">{{ tour.tour_altitude }} <small>mts</small></span>
 										{% endif %}
 
-										<a class="btn btn-primary btn-outline" href="{% url 'tour:tour-detail' tour.tour_slug %}">Read More <i class="icon-arrow-right22"></i></a>
+										<a class="btn btn-primary btn-outline" href="{% url 'tour:tour-detail' tour.tour_slug %}">Explore Now <i class="icon-arrow-right22"></i></a>
 									</div>
 								</div>
 							</div>

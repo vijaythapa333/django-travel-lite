@@ -27,7 +27,7 @@
 								<div class="fh5co-blog animate-box">
 
 									{% if tour.tour_image %}
-										<a href="{% url 'tour:tour-detail' tour.tour_slug %}"><img class="img-responsive" src="{{ tour.tour_image.url }}" alt="{{ tour.tour_title }}"></a>
+										<a href="{% url 'tour:tour-detail' tour.tour_slug %}"><img class="img-responsive" src="{{ tour.tour_image.url }}" alt="{{ tour.tour_title }}" style="height:200px; width:100%;"></a>
 									{% else %}
 										<a href="{% url 'tour:tour-detail' tour.tour_slug %}"><img class="img-responsive" src="{% static 'images/no-image.jpg' %}" alt="{{ tour.tour_title }}"></a>
 									{% endif %}
@@ -104,24 +104,25 @@
 							<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
 								<div href="#">
 									{% if region.region_image %}
-									<img src="{{ region.region_image.url }}" alt="{{ region.region_title }}" class="img-responsive">
+									<img src="{{ region.region_image.url }}" alt="{{ region.region_title }}" class="img-responsive"  style="height:320px; width:100%;">
 									{% else %}
-									<img src="{% static 'images/no-image.jpg' %}" alt="Travel Nepal" class="img-responsive">
+									<img src="{% static 'images/no-image.jpg' %}" alt="Travel Nepal" class="img-responsive"  style="height:320px; width:100%;">
 									{% endif %}
 
 									<div class="desc">
 										<span></span>
 										<h3>{{ region.region_title }}</h3>
-										<span>3 nights + Flight 5*Hotel</span>
-										<span class="price">$1,000</span>
-										<a class="btn btn-primary btn-outline" href="#">Explore Tours <i class="icon-arrow-right22"></i></a>
+										<br>
+										{% comment %} <span>3 nights + Flight 5*Hotel</span>
+										<span class="price">$1,000</span> {% endcomment %}
+										<a class="btn btn-primary btn-outline" href="{% url 'tour:region-detail' region.region_slug %}">Explore Tours <i class="icon-arrow-right22"></i></a>
 									</div>
 								</div>
 							</div>
 						{% endfor %}
 
 						<div class="col-md-12 text-center animate-box">
-							<p><a class="btn btn-primary btn-outline btn-lg" href="#">See All Regions <i class="icon-arrow-right22"></i></a></p>
+							<p><a class="btn btn-primary btn-outline btn-lg" href="{% url 'tour:all-regions' %}">See All Regions <i class="icon-arrow-right22"></i></a></p>
 						</div>
 					</div>
 				</div>
