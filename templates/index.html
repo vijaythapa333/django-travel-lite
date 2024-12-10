@@ -259,16 +259,17 @@
 							<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
 								<div href="#">
 									{% if region.region_image %}
-									<img src="{{ region.region_image.url }}" alt="{{ region.region_title }}" class="img-responsive">
+									<img src="{{ region.region_image.url }}" alt="{{ region.region_title }}" class="img-responsive" style="height:320px; width:100%;">
 									{% else %}
-									<img src="{% static 'images/no-image.jpg' %}" alt="Travel Nepal" class="img-responsive">
+									<img src="{% static 'images/no-image.jpg' %}" alt="Travel Nepal" class="img-responsive" style="height:320px; width:100%;">
 									{% endif %}
 
 									<div class="desc">
 										<span></span>
 										<h3>{{ region.region_title }}</h3>
-										<span>3 nights + Flight 5*Hotel</span>
-										<span class="price">$1,000</span>
+										<br>
+										{% comment %} <span>3 nights + Flight 5*Hotel</span>
+										<span class="price">$1,000</span> {% endcomment %}
 										<a class="btn btn-primary btn-outline" href="{% url 'tour:region-detail' region.region_slug %}">Explore Tours <i class="icon-arrow-right22"></i></a>
 									</div>
 								</div>
