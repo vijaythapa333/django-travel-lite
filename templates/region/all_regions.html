@@ -22,9 +22,9 @@
 							<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
 								<div href="#">
 									{% if region.region_image %}
-									<img src="{{ region.region_image.url }}" alt="{{ region.region_title }}" class="img-responsive">
+									<img src="{{ region.region_image.url }}" alt="{{ region.region_title }}" class="img-responsive" style="height:320px; width:100%;">
 									{% else %}
-									<img src="{% static 'images/no-image.jpg' %}" alt="Travel Nepal" class="img-responsive">
+									<img src="{% static 'images/no-image.jpg' %}" alt="Travel Nepal" class="img-responsive" style="height:320px; width:100%;">
 									{% endif %}
 
 									<div class="desc">
