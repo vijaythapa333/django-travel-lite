@@ -24,9 +24,9 @@
 						<div class="fh5co-blog animate-box">
 
 							{% if blog.blog_image %}
-								<a href="{% url 'blog:blog-detail' blog.blog_slug %}"><img class="img-responsive" src="{{ blog.blog_image.url }}" alt=""></a>
+								<a href="{% url 'blog:blog-detail' blog.blog_slug %}"><img class="img-responsive" src="{{ blog.blog_image.url }}" alt="{{ blog.blog_title }}" style="height:200px; width:100%;"></a>
 							{% else %}
-								<a href="{% url 'blog:blog-detail' blog.blog_slug %}"><img class="img-responsive" src="{% static 'images/place-1.jpg' %}" alt=""></a>
+								<a href="{% url 'blog:blog-detail' blog.blog_slug %}"><img class="img-responsive" src="{% static 'images/no-image.jpg' %}" alt="{{ blog.blog_title }}" style="height:200px; width:100%;"></a>
 							{% endif %}
 
 							<div class="blog-text">
