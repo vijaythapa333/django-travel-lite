@@ -66,19 +66,3 @@ class ContactPageView(TemplateView):
 	template_name = 'contact.html'
 
 
-class CarPageView(TemplateView):
-	template_name = 'car.html'
-
-
-class FlightPageView(TemplateView):
-	template_name = 'flight.html'
-
-
-
-class HotelPageView(TemplateView):
-	template_name = 'hotel.html'
-
-
-
-class VacationPageView(TemplateView):
-	template_name = 'vacation.html'
