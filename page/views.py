@@ -20,12 +20,14 @@ class HomePageView(TemplateView):
 		regions = Region.objects.filter(region_is_active='yes', region_is_featured='yes').order_by('-region_created_at')[:3]
 		activities = Activity.objects.filter(activity_is_active='yes', activity_is_featured='yes').order_by('-activity_created_at')[:6]
 		tours = Tour.objects.filter(tour_is_active='yes', tour_is_featured='yes').order_by('-tour_created_at')[:10]
+		featured_tours = Tour.objects.filter(tour_is_active='yes', tour_is_featured='yes').order_by('-tour_created_at')[:1]
 		blogs = Blog.objects.filter(blog_is_active='yes', blog_is_featured='yes').order_by('-blog_created_at')[:3]
 
 		context = {
 			'regions': regions,
 			'activities': activities,
 			'tours': tours,
+			'featured_tours': featured_tours,
 			'blogs': blogs
 		}
 		return render(request, 'index.html', context)
