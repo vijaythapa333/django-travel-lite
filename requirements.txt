@@ -4,7 +4,9 @@ astroid==2.4.2
 certifi==2024.8.30
 distlib==0.3.0
 Django==3.2.3
+django-ckeditor==6.7.2
 django-extensions==3.2.3
+django-js-asset==2.2.0
 filelock==3.0.12
 isort==4.3.21
 lazy-object-proxy==1.4.3
