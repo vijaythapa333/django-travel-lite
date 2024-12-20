@@ -22,7 +22,7 @@
 									<div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
 										<p style="color:white;">#1 Most Popular Tour Now in Nepal</p>
 										<h2>{{ tour.tour_title }}</h2>
-										<p>{{ tour.tour_description|slice:":200" }}</p>
+										<p>{{ tour.tour_description|safe|slice:":200" }}</p>
 										<p><a class="btn btn-primary btn-lg" href="{% url 'tour:tour-detail' tour.tour_slug %}">Explore Now</a></p> 
 									</div>
 								</div>

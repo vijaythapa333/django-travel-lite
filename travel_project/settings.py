@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'marketing',
 
     'django_extensions',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

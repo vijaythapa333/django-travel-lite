@@ -9,7 +9,7 @@
 				<!-- Blogs Starts Here -->
 		{% if tour %}
 
-		<div id="fh5co-blog-section" class="fh5co-section-gray">
+		<div id="fh5co-blog-section" class="fh5co-section-gray" style="padding-bottom:0px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 heading-section animate-box">
@@ -34,7 +34,7 @@
 						</div>
 						<br>
 
-						{{ tour.tour_description }}
+						{{ tour.tour_description|safe }}
 						
 					</div>
 				</div>
@@ -46,7 +46,7 @@
 		
 		<!-- Similar Tours Starts Here -->
 		{% if similar_tours %}
-			<div id="fh5co-tours" class="fh5co-section-gray">
+			<div id="fh5co-tours" class="fh5co-section-gray" style="padding-top:10px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">

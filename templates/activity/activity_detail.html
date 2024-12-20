@@ -40,7 +40,7 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 						<h3>Tours for {{ activity.activity_title }}</h3>
-						<p>{{ activity.activity_description }}</p>
+						<div>{{ activity.activity_description|safe }}</div>
 					</div>
 				</div>
 			</div>
@@ -72,7 +72,7 @@
 											, {{ tour.tour_duration }} Days
 											{% endif %}
 											</div>
-										<p>{{ tour.tour_description|slice:":110" }} ...</p>
+										<div>{{ tour.tour_description|safe|slice:":110" }} ...</div>
 										<p><a href="{% url 'tour:tour-detail' tour.tour_slug %}">Explore Now</a></p>
 									</div>
 								</div> 

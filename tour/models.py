@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 IS_ACTIVE = (
@@ -18,7 +19,7 @@ DIFFICULTY = (
 class Activity(models.Model):
 	activity_title = models.CharField(max_length=200, verbose_name="Activity Title")
 	activity_slug = models.SlugField(max_length=200, verbose_name="Activity Slug")
-	activity_description = models.TextField(blank=True, null=True, verbose_name="Activity Description")
+	activity_description = RichTextField(blank=True, null=True, verbose_name="Activity Description")
 	activity_image = models.ImageField(upload_to='activities/', blank=True, null=True, verbose_name="Activity Image")
 	activity_icon = models.CharField(max_length=200, blank=True, null=True, verbose_name="Activity Icon")
 	activity_is_active = models.CharField(
@@ -50,7 +51,7 @@ class Activity(models.Model):
 class Region(models.Model):
 	region_title = models.CharField(max_length=200, verbose_name="Region Title")
 	region_slug = models.CharField(max_length=200, verbose_name="Region Slug")
-	region_description = models.TextField(blank=True, null=True, verbose_name="Region Description")
+	region_description = RichTextField(blank=True, null=True, verbose_name="Region Description")
 	region_image = models.ImageField(upload_to='regions/', blank=True, null=True, verbose_name="Region Image")
 	region_is_active = models.CharField(
 			choices = IS_ACTIVE,
@@ -93,7 +94,7 @@ class Tour(models.Model):
 			max_length = 10,
 			verbose_name = 'Tour Difficulty'
 		)
-	tour_description = models.TextField(blank=True, null=True, verbose_name="Tour Description")
+	tour_description = RichTextField(blank=True, null=True, verbose_name="Tour Description")
 	tour_image = models.ImageField(upload_to='tours/', blank=True, null=True, verbose_name="Tour Image")
 	tour_map = models.ImageField(upload_to='maps/', blank=True, null=True, verbose_name="Tour Map")
 	tour_activity = models.ForeignKey(Activity, on_delete=models.SET_NULL, default = None, null=True, verbose_name='Tour Activity')

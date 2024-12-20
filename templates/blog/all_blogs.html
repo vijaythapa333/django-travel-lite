@@ -34,7 +34,7 @@
 									<h3><a href="{% url 'blog:blog-detail' blog.blog_slug %}">{{ blog.blog_title }}</a></h3>
 									<span class="posted_by">{{ blog.blog_created_at }}</span>
 									<span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-									<p>{{ blog.blog_description|slice:":100" }} ...</p>
+									<div>{{ blog.blog_description|safe|slice:":100" }} ...</div>
 									<p><a href="{% url 'blog:blog-detail' blog.blog_slug %}">Read More...</a></p>
 								</div>
 							</div> 

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -23,7 +24,7 @@ class Page(models.Model):
 			max_length=20,
 			verbose_name='Page Position'
 		)
-	page_description = models.TextField(blank=True, null=True, verbose_name="Page Description")
+	page_description = RichTextField(blank=True, null=True, verbose_name="Page Description")
 	page_image = models.ImageField(upload_to='pages/', blank=True, null=True, verbose_name="Page Image")
 	page_is_active = models.CharField(
 			choices = IS_ACTIVE,

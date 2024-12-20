@@ -32,7 +32,7 @@
 								</span>
 								<div class="feature-copy">
 									<h3>{{ activity.activity_title }}</h3>
-									<p>{{ activity.activity_description|slice:":70" }} ...</p>
+									<div>{{ activity.activity_description|safe|slice:":70" }} ...</div>
 									<p><a href="{% url 'tour:activity-detail' activity.activity_slug %}">View Tours</a></p>
 								</div>
 							</div>

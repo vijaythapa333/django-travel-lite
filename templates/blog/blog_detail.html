@@ -9,7 +9,7 @@
 				<!-- Blogs Starts Here -->
 		{% if blog %}
 
-		<div id="fh5co-blog-section" class="fh5co-section-gray">
+		<div id="fh5co-blog-section" class="fh5co-section-gray" style="padding-bottom:0px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 heading-section animate-box">
@@ -38,7 +38,7 @@
 							<small>Published By <strong>{{ blog.blog_added_by.first_name }}  {{ blog.blog_added_by.last_name }}</strong> on <strong>{{ blog.blog_created_at }}</strong></small>
 						</p>
 
-						{{ blog.blog_description }}
+						<div>{{ blog.blog_description|safe }}</div>
 						
 					</div>
 				</div>
@@ -50,7 +50,7 @@
 		
 		<!-- Similar Blogs Starts Here -->
 		{% if similar_blogs %}
-			<div id="fh5co-blog-section" class="fh5co-section-gray">
+			<div id="fh5co-blog-section" class="fh5co-section-gray" style="padding-top:10px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">

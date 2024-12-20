@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 IS_ACTIVE = (
@@ -40,7 +41,7 @@ class Category(models.Model):
 class Blog(models.Model):
 	blog_title = models.CharField(max_length=200, verbose_name='Blog Title')
 	blog_slug = models.CharField(max_length=200, verbose_name='Blog Slug')
-	blog_description = models.TextField(blank=True, null=True, verbose_name='Blog Description')
+	blog_description = RichTextField(blank=True, null=True, verbose_name='Blog Description')
 	blog_image = models.ImageField(upload_to='blogs/', blank=True, null=True, verbose_name='Blog Image')
 	blog_category = models.ManyToManyField(Category, verbose_name='Blog Category')
 	blog_is_active = models.CharField(
