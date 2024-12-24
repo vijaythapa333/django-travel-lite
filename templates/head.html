@@ -53,6 +53,22 @@
 	
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+	<style>
+		{% comment %} Overriding CSS on Mobile Devices {% endcomment %}
+		@media screen and (max-width: 768px) {
+			.fh5co-cover .desc .desc2 {
+			  display: block;
+			  padding-top:0px;
+			}
+			.fh5co-cover{
+				background-position:0px 0px !important;
+			}
+			.fh5co-cover .desc{
+				margin-top:-150px !important;
+			}
+		  }
+		  
+	</style>
 
 	<!-- Modernizr JS -->
 	<script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
