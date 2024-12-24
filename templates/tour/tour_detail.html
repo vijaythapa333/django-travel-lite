@@ -92,7 +92,7 @@
 
 			<!-- Other Tours Starts Here -->
 		{% elif other_tours %}
-			<div id="fh5co-tours" class="fh5co-section-gray">
+			<div id="fh5co-tours" class="fh5co-section-gray" style="padding-top:0px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
@@ -106,9 +106,9 @@
 							<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
 								<div href="#">
 									{% if tour.tour_image %}
-									<img src="{{ tour.tour_image.url }}" alt="{{ tour.tour_title }}" class="img-responsive">
+									<img src="{{ tour.tour_image.url }}" alt="{{ tour.tour_title }}" class="img-responsive"  style="height:320px; width:100%;">
 									{% else %}
-									<img src="{% static 'images/no-image.jpg' %}" alt="{{ tour.tour_title }}" class="img-responsive">
+									<img src="{% static 'images/no-image.jpg' %}" alt="{{ tour.tour_title }}" class="img-responsive"  style="height:320px; width:100%;">
 									{% endif %}
 
 									<div class="desc">
