@@ -54,6 +54,18 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 	<style>
+		{% comment %} Display Testimonials in Equal Height Column {% endcomment %}
+		.eq-row {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display:         flex;
+			flex-wrap: wrap;
+		  }
+		  .eq-row > [class*='col-'] {
+			display: flex;
+			flex-direction: column;
+		  }
 		{% comment %} Overriding CSS on Mobile Devices {% endcomment %}
 		@media screen and (max-width: 768px) {
 			.fh5co-cover .desc .desc2 {
@@ -67,6 +79,7 @@
 				margin-top:-150px !important;
 			}
 		  }
+		  
 		  
 	</style>
 

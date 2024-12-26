@@ -50,7 +50,7 @@
 								{% for footer_page in footer_menu %}
 									<li><a href="{% url 'page:page-detail' footer_page.page_slug %}">{{ footer_page.page_title }}</a></li>
 								{% endfor %}
-								
+									<li><a href="{% url 'marketing:all-testimonials' %}">Testimonials</a></li>
 							</ul>
 						</div>
 					</div>

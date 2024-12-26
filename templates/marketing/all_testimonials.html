@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+    <!-- fh5co-testimonials-section -->
+		 {% if testimonials %}
+         <div id="fh5co-testimonial">
+         <div class="container">
+             <div class="row animate-box">
+                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                     <h2>Happy Clients</h2>
+                     <p style="color: #98D7BE; margin-top:0px;">See what our clients have to say.</p>
+                 </div>
+             </div>
+             <div class="row eq-row">
+ 
+                 {% for testimonial in testimonials %}
+                 <div class="col-md-4">
+                     <div class="box-testimony animate-box">
+                         <blockquote>
+                             <span class="quote"><span><i class="icon-quotes-right"></i></span></span>
+                             <p>&ldquo;{{ testimonial.testimonial }}&rdquo;</p>
+                         </blockquote>
+                         <p class="author">{{ testimonial.customer_name }}, <span style="color: #98D7BE;">{{ testimonial.customer_company}}</span> <span class="subtext">{{ testimonial.customer_job_title }}</span></p>
+                     </div>
+                     
+                 </div>
+                 {% endfor %}
+ 
+ 
+             </div>
+         </div>
+     </div>
+     {% else %}
+     <div class="alert alert-danger" role="alert">
+        There are no testimonials for now. Please visit later.
+    </div>
+     {% endif %}
+
+     {% comment %} Featured Tours Starts {% endcomment %}
+     {% if featured_tours %}
+			<div id="fh5co-tours" class="fh5co-section-gray" style="padding-top:100px;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+							<h3>Featured Tours</h3>
+							<p>Find the best tours that guarantees your adventure thrills.</p>
+						</div>
+					</div>
+					<div class="row">
+
+						{% for tour in featured_tours %}
+							<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+								<div href="#">
+									{% if tour.tour_image %}
+									<img src="{{ tour.tour_image.url }}" alt="{{ tour.tour_title }}" class="img-responsive"  style="height:320px; width:100%;">
+									{% else %}
+									<img src="{% static 'images/no-image.jpg' %}" alt="{{ tour.tour_title }}" class="img-responsive"  style="height:320px; width:100%;">
+									{% endif %}
+
+									<div class="desc">
+										<span></span>
+										<h3>{{ tour.tour_title }}</h3>
+										{% if tour.tour_duration %}
+											<span>{{ tour.tour_duration }} Days</span>
+										{% endif %}
+										
+										{% if tour.tour_duration %}
+											<span class="price">{{ tour.tour_altitude }} <small>mts</small></span>
+										{% endif %}
+
+										<a class="btn btn-primary btn-outline" href="{% url 'tour:tour-detail' tour.tour_slug %}">Explore Now <i class="icon-arrow-right22"></i></a>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+
+						<div class="col-md-12 text-center animate-box">
+							<p><a class="btn btn-primary btn-outline btn-lg" href="{% url 'tour:all-tours' %}">See All Tours <i class="icon-arrow-right22"></i></a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Similar Tours Ends Here -->
+        {% endif %}
+
+{% endblock content %}
