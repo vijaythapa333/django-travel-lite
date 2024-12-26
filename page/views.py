@@ -3,7 +3,7 @@ from django.views.generic import View, TemplateView, ListView, DetailView
 from tour.models import Region, Activity, Tour
 from blog.models import Blog
 from marketing.forms import SubscribeForm
-from marketing.models import Subscriber
+from marketing.models import Subscriber, Testimonials
 from .models import Page
 from django.contrib import messages
 
@@ -22,13 +22,15 @@ class HomePageView(TemplateView):
 		tours = Tour.objects.filter(tour_is_active='yes', tour_is_featured='yes').order_by('-tour_created_at')[:10]
 		featured_tours = Tour.objects.filter(tour_is_active='yes', tour_is_featured='yes').order_by('-tour_created_at')[:1]
 		blogs = Blog.objects.filter(blog_is_active='yes', blog_is_featured='yes').order_by('-blog_created_at')[:3]
+		testimonials = Testimonials.objects.filter(testimonial_is_active='yes', testimonial_is_featured='yes').order_by('-testimonial_created_at')[:3]
 
 		context = {
 			'regions': regions,
 			'activities': activities,
 			'tours': tours,
 			'featured_tours': featured_tours,
-			'blogs': blogs
+			'blogs': blogs, 
+			'testimonials': testimonials
 		}
 		return render(request, 'index.html', context)
 

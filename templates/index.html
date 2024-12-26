@@ -230,7 +230,7 @@
 
 		<div class="subscribe">
 			<div class="container">
-				<h2 class="text-center">Subscribe To Our Wewsletter</h2>
+				<h2 class="text-center">Subscribe To Our Newsletter</h2>
 				<form method="POST" action=".">
 					{% csrf_token %}
 				  <div class="row">
@@ -247,6 +247,7 @@
 
 
 		<!-- fh5co-blog-section -->
+		 {% if testimonials %}
 		<div id="fh5co-testimonial">
 		<div class="container">
 			<div class="row animate-box">
@@ -255,40 +256,25 @@
 				</div>
 			</div>
 			<div class="row">
+
+				{% for testimonial in testimonials %}
 				<div class="col-md-4">
 					<div class="box-testimony animate-box">
 						<blockquote>
 							<span class="quote"><span><i class="icon-quotes-right"></i></span></span>
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+							<p>&ldquo;{{ testimonial.testimonial }}&rdquo;</p>
 						</blockquote>
-						<p class="author">John Doe, CEO <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
+						<p class="author">{{ testimonial.customer_name }}, <span style="color: #98D7BE;">{{ testimonial.customer_company}}</span> <span class="subtext">{{ testimonial.customer_job_title }}</span></p>
 					</div>
 					
 				</div>
-				<div class="col-md-4">
-					<div class="box-testimony animate-box">
-						<blockquote>
-							<span class="quote"><span><i class="icon-quotes-right"></i></span></span>
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
-						</blockquote>
-						<p class="author">John Doe, CEO <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
-					</div>
-					
-					
-				</div>
-				<div class="col-md-4">
-					<div class="box-testimony animate-box">
-						<blockquote>
-							<span class="quote"><span><i class="icon-quotes-right"></i></span></span>
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-						</blockquote>
-						<p class="author">John Doe, Founder <a href="#">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
-					</div>
-					
-				</div>
+				{% endfor %}
+
+
 			</div>
 		</div>
 	</div>
+	{% endif %}
 	
 	{% endblock content %}
 
