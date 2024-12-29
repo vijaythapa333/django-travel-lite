@@ -3,7 +3,6 @@ from .models import AppDetail, SocialMedia
 
 
 def app_detail(request):
-	# this_app = AppDetail.objects.filter(id__lookup=1).latest()
 	this_app = AppDetail.objects.get(app_name='Travels')
 	socialmedias = SocialMedia.objects.filter(socialmedia_is_active='yes')
 

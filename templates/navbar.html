@@ -8,7 +8,11 @@
 			<div class="container">
 				<div class="nav-header">
 					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-					<h1 id="fh5co-logo"><a href="{% url 'page:home' %}"><i class="icon-airplane"></i>Travel</a></h1>
+					{% if this_app.app_logo %}
+					<a href="{% url 'page:home' %}"><img src="{{ this_app.app_logo.url }}" alt="{{ this_app.app_name }}" class="img-logo"></a>
+					{% else %}
+					<h1 id="fh5co-logo"><a href="{% url 'page:home' %}"><i class="icon-airplane"></i>{{ this_app.app_name }}</a></h1>
+					{% endif %}
 					<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
