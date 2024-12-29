@@ -7,8 +7,12 @@ class AppDetailAdmin(admin.ModelAdmin):
 	list_display = ('app_name', 'app_title', 'app_email', 'app_contact', 'app_postal')
 	list_editable = ('app_title', 'app_email', 'app_contact', 'app_postal')
 
-	# Disabling the add functionality for App Detail
+	# Disabling the Add functionality for App Detail
 	def has_add_permission(self, request):
+		return False
+	
+	#Disabling Delete functionality to prevent accidental deletion of App Details/Settings
+	def has_delete_permission(self, request, obj = None):
 		return False
 
 
