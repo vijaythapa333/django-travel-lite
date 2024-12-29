@@ -5,8 +5,8 @@
 				<div class="container">
 					<div class="row row-bottom-padded-md">
 						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-							<h3>About Travel</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<h3>About {{this_app.app_name  }}</h3>
+							<p>{{ this_app.app_description }}</p>
 						</div>
 						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
 							<h3>Top Activities</h3>
@@ -51,6 +51,13 @@
 									<li><a href="{% url 'page:page-detail' footer_page.page_slug %}">{{ footer_page.page_title }}</a></li>
 								{% endfor %}
 									<li><a href="{% url 'marketing:all-testimonials' %}">Testimonials</a></li>
+							</ul>
+
+							<h3 style="margin-top:20%;">Contact Details</h3>
+							<ul>
+								<li><strong>Phone: </strong>{{ this_app.app_contact }}</li>
+								<li><strong>Email: </strong>{{ this_app.app_email}}</li>
+								<li><strong>Address: </strong>{{ this_app.app_address }}, {{ this_app.app_postal }}</li>
 							</ul>
 						</div>
 					</div>
