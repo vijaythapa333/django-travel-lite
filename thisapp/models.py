@@ -17,7 +17,7 @@ class AppDetail(models.Model):
 	app_keywords = models.TextField(blank=True, null=True, verbose_name="Website Keywords (Separated by Commas)")
 	app_description = models.TextField(blank=True, null=True, verbose_name="Website Description (160 Characters Long)")
 	app_email = models.EmailField(max_length=100, blank=True, null=True, verbose_name="Primary Email for Website")
-	app_contact = models.CharField(max_length=15, blank=True, null=True, verbose_name="Contact Number for Website")
+	app_contact = models.CharField(max_length=15, blank=True, null=True, verbose_name="Contact Number for Website", help_text="Please add country code with contact number but no spaces.")
 	app_address = models.TextField(blank=True, null=True, verbose_name="Physical Address for the Website")
 	app_postal = models.CharField(max_length=10, blank=True, null=True, verbose_name="Postal Address for the Website")
 	whatsapp_booking = models.CharField(

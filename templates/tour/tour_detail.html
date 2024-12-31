@@ -64,6 +64,12 @@
 						<br>
 
 						{{ tour.tour_description|safe }}
+
+						{% if this_app.whatsapp_booking == 'yes'  %}
+						<div class="text-center" style="margin-bottom:100px;">
+							<a href="https://wa.me/{{ this_app.app_contact }}?text=Hi {{ this_app.app_name }}, I want to book {{ tour.tour_title }}." target="_blank" class="btn btn-success btn-outline-success btn-lg">Book On WhatsApp</a>
+						</div>
+						{% endif %}
 						
 					</div>
 				</div>
