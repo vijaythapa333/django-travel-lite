@@ -1,7 +1,85 @@
 
 {% load static %}
 
-{% include 'head.html' %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	{% block meta_content %}
+	{% endblock meta_content %}
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="{{ this_app.app_icon.url }}">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="{% static 'css/superfish.css' %}">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.min.css' %}">
+	<!-- CS Select -->
+	<link rel="stylesheet" href="{% static 'css/cs-select.css' %}">
+	<link rel="stylesheet" href="{% static 'css/cs-skin-border.css' %}">
+	
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<style>
+		.img-logo{
+			height: 35px;
+			margin: 30px 0px;
+		}
+		{% comment %} Display Testimonials in Equal Height Column {% endcomment %}
+		.eq-row {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display:         flex;
+			flex-wrap: wrap;
+		  }
+		  .eq-row > [class*='col-'] {
+			display: flex;
+			flex-direction: column;
+		  }
+		{% comment %} Overriding CSS on Mobile Devices {% endcomment %}
+		@media screen and (max-width: 768px) {
+			.fh5co-cover .desc .desc2 {
+			  display: block;
+			  padding-top:0px;
+			}
+			.fh5co-cover{
+				background-position:0px 0px !important;
+			}
+			.fh5co-cover .desc{
+				margin-top:-150px !important;
+			}
+		  }
+		  
+		  
+	</style>
+
+	<!-- Modernizr JS -->
+	<script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+
+
 {% include 'navbar.html' %}
 {% include 'partials/_message.html' %}
 

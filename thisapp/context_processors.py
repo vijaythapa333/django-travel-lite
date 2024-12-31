@@ -3,7 +3,7 @@ from .models import AppDetail, SocialMedia
 
 
 def app_detail(request):
-	this_app = AppDetail.objects.get(app_name='Travels')
+	this_app = AppDetail.objects.get(developed_by='Vijay Thapa')
 	socialmedias = SocialMedia.objects.filter(socialmedia_is_active='yes')
 
 	context = {

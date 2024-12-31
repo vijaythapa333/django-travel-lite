@@ -2,6 +2,26 @@
 {% extends 'base.html' %}
 {% load static %}
 
+	{% block meta_content %}
+		<title>{{ this_app.app_name }} - {{ this_app.app_title}}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="{{ this_app.app_description }}" />
+		<meta name="keywords" content="{{ this_app.app_keywords }}" />
+		<meta name="author" content="{{ this_app.developed_by }}" />
+
+		<!-- Facebook and Twitter integration -->
+		<meta property="og:title" content="{{ this_app.app_name }} - {{ this_app.app_title}}"/>
+		<meta property="og:image" content="{{ this_app.app_logo.url }}"/>
+		<meta property="og:url" content="{% url 'page:home' %}"/>
+		<meta property="og:site_name" content="{{ this_app.app_name }} - {{ this_app.app_title}}"/>
+		<meta property="og:description" content="{{ this_app.app_description }}"/>
+		<meta name="twitter:title" content="{{ this_app.app_name }} - {{ this_app.app_title}}" />
+		<meta name="twitter:image" content="{{ this_app.app_logo.url }}" />
+		<meta name="twitter:url" content="{% url 'page:home' %}" />
+		<meta name="twitter:description" content="{{ this_app.app_description }}" />
+		<meta name="twitter:card" content="summary_large_image" />
+	{% endblock meta_content %}
+
 
 	{% block content %}
 

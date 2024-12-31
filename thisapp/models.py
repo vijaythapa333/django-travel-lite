@@ -13,12 +13,21 @@ class AppDetail(models.Model):
 	app_name = models.CharField(max_length=200, verbose_name="Website Name")
 	app_title = models.CharField(max_length=200, verbose_name="Website Title (60 Characters Long)")
 	app_logo = models.ImageField(blank=True, null=True, verbose_name="Website Logo")
+	app_icon = models.ImageField(blank=True, null=True, verbose_name="Website Favicon")
 	app_keywords = models.TextField(blank=True, null=True, verbose_name="Website Keywords (Separated by Commas)")
 	app_description = models.TextField(blank=True, null=True, verbose_name="Website Description (160 Characters Long)")
 	app_email = models.EmailField(max_length=100, blank=True, null=True, verbose_name="Primary Email for Website")
 	app_contact = models.CharField(max_length=15, blank=True, null=True, verbose_name="Contact Number for Website")
 	app_address = models.TextField(blank=True, null=True, verbose_name="Physical Address for the Website")
 	app_postal = models.CharField(max_length=10, blank=True, null=True, verbose_name="Postal Address for the Website")
+	whatsapp_booking = models.CharField(
+		choices=IS_ACTIVE,
+		default='Yes',
+		max_length=10,
+		verbose_name='Book On Whatsapp?',
+		help_text='Select Yes to accept booking on WhatsApp.'
+	)
+	developed_by = models.CharField(max_length=20, blank=True, null=True, verbose_name="Developed By", help_text='Do not change it. Changing it may cause your website to not function correctly.')
 	app_created_at = models.DateTimeField(auto_now_add=True, verbose_name="App Created Date")
 	app_updated_at = models.DateTimeField(auto_now=True, verbose_name="App Updated Date")
 
