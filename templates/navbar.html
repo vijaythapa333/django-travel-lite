@@ -16,12 +16,12 @@
 					<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li class="active"><a href="{% url 'page:home' %}">Home</a></li>
+							<li class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"><a href="{% url 'page:home' %}">Home</a></li>
 							{% for top_page in top_menu %}
-								<li><a href="{% url 'page:page-detail' top_page.page_slug %}">{{ top_page.page_title }}</a></li>
+								<li class="{% if top_page.page_slug in request.path %}active{% endif %}"><a href="{% url 'page:page-detail' top_page.page_slug %}">{{ top_page.page_title }}</a></li>
 							{% endfor %}
 
-							<li>
+							<li class="{% if 'activit' in request.path %}active{% endif %}">
 								<a href="{% url 'tour:all-activities' %}" class="fh5co-sub-ddown">Activities</a>
 								<ul class="fh5co-sub-menu">
 									{% for activity in activity_menu %}
@@ -29,7 +29,7 @@
 									{% endfor %}
 								</ul>
 							</li>
-							<li>
+							<li class="{% if 'region' in request.path %}active{% endif %}">
 								<a href="{% url 'tour:all-regions' %}" class="fh5co-sub-ddown">Regions</a>
 								<ul class="fh5co-sub-menu">
 									{% for region in region_menu %}
@@ -37,8 +37,8 @@
 									{% endfor %}
 								</ul>
 							</li>
-							<li><a href="{% url 'blog:all-blogs' %}">Blogs</a></li>
-							<li><a href="{% url 'page:contact' %}">Contact</a></li>
+							<li class="{% if 'blog' in request.path %}active{% endif %}"><a href="{% url 'blog:all-blogs' %}">Blogs</a></li>
+							<li class="{% if 'contact' in request.path %}active{% endif %}"><a href="{% url 'page:contact' %}">Contact</a></li>
 						</ul>
 					</nav>
 				</div>
