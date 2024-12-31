@@ -3,6 +3,35 @@
 {% load static %}
 
 
+	{% block meta_content %}
+		{% if tour.seo_tour_title %}
+		<title>{{ tour.seo_tour_title }} - {{ this_app.app_name }}</title>
+		{% else %}
+		<title>{{ tour.tour_title }} - {{ this_app.app_name }}</title>
+		{% endif %}
+
+		<meta name="description" content="{{ tour.seo_tour_description }}" />
+		<meta name="keywords" content="{{ tour.seo_tour_keywords }}" />
+
+		<!-- Facebook and Twitter integration -->
+		<meta property="og:title" content="{{ tour.tour_title }}"/>
+		{% if tour.tour_image %}
+		<meta property="og:image" content="{{ tour.tour_image.url }}"/>
+		{% endif %}
+		<meta property="og:url" content="{% url 'tour:tour-detail' tour.tour_slug %}"/>
+		<meta property="og:site_name" content="{{ this_app.app_name }} - {{ this_app.app_title}}"/>
+		<meta property="og:description" content="{{ tour.seo_tour_description }}"/>
+
+		<meta name="twitter:title" content="{{ tour.tour_title }}" />
+		{% if tour.tour_image %}
+		<meta property="twitter:image" content="{{ tour.tour_image.url }}"/>
+		{% endif %}
+		<meta name="twitter:url" content="{% url 'tour:tour-detail' tour.tour_slug %}" />
+		<meta name="twitter:description" content="{{ tour.seo_tour_description }}" />
+		<meta name="twitter:card" content="summary_large_image" />
+	{% endblock meta_content %}
+
+
 	{% block content %}
 	
 

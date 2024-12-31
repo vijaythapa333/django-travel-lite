@@ -1,6 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
+	{% block meta_content %}
+		<title>Contact - {{ this_app.app_name }}</title>
+		<meta name="description" content="{{ this_app.app_description }}" />
+		<meta name="keywords" content="{{ this_app.app_keywords }}" />
+
+		<!-- Facebook and Twitter integration -->
+		<meta property="og:title" content="Contact - {{ this_app.app_name }}"/>
+		<meta property="og:image" content="{{ this_app.app_logo.url }}"/>
+		<meta property="og:url" content="{% url 'page:contact' %}"/>
+		<meta property="og:site_name" content="{{ this_app.app_name }} - {{ this_app.app_title}}"/>
+		<meta property="og:description" content="{{ this_app.app_description }}"/>
+
+		<meta name="twitter:title" content="Contact - {{ this_app.app_name }}" />
+		<meta name="twitter:image" content="{{ this_app.app_logo.url }}" />
+		<meta name="twitter:url" content="{% url 'page:contact' %}" />
+		<meta name="twitter:description" content="{{ this_app.app_description }}" />
+		<meta name="twitter:card" content="summary_large_image" />
+	{% endblock meta_content %}
+
+
 	{% block content %}
 		
 		<div id="fh5co-contact" class="fh5co-section-gray">

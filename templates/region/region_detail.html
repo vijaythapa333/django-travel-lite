@@ -3,6 +3,36 @@
 {% load static %}
 
 
+{% block meta_content %}
+		{% if region.seo_region_title %}
+		<title>{{ region.seo_region_title }} - {{ this_app.app_name }}</title>
+		{% else %}
+		<title>{{ region.region_title }} - {{ this_app.app_name }}</title>
+		{% endif %}
+
+		<meta name="description" content="{{ region.seo_region_description }}" />
+		<meta name="keywords" content="{{ region.seo_region_keywords }}" />
+
+		<!-- Facebook and Twitter integration -->
+		<meta property="og:title" content="{{ region.region_title }}"/>
+		{% if region.region_image %}
+		<meta property="og:image" content="{{ region.region_image.url }}"/>
+		{% endif %}
+		<meta property="og:url" content="{% url 'tour:region-detail' region.region_slug %}"/>
+		<meta property="og:site_name" content="{{ this_app.app_name }} - {{ this_app.app_title}}"/>
+		<meta property="og:description" content="{{ region.seo_region_description }}"/>
+
+		<meta name="twitter:title" content="{{ region.region_title }}" />
+		{% if region.region_image %}
+		<meta property="twitter:image" content="{{ region.region_image.url }}"/>
+		{% endif %}
+		<meta name="twitter:url" content="{% url 'tour:region-detail' region.region_slug %}" />
+		<meta name="twitter:description" content="{{ region.seo_region_description }}" />
+		<meta name="twitter:card" content="summary_large_image" />
+	{% endblock meta_content %}
+
+
+
 	{% block content %}
 	
 		<div class="fh5co-hero">

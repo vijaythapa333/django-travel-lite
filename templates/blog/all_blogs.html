@@ -3,6 +3,26 @@
 {% load static %}
 
 
+	{% block meta_content %}
+		<title>Blog - {{ this_app.app_name }}</title>
+		<meta name="description" content="{{ this_app.app_description }}" />
+		<meta name="keywords" content="{{ this_app.app_keywords }}" />
+
+		<!-- Facebook and Twitter integration -->
+		<meta property="og:title" content="Blog - {{ this_app.app_name }}"/>
+		<meta property="og:image" content="{{ this_app.app_logo.url }}"/>
+		<meta property="og:url" content="{% url 'blog:all-blogs' %}"/>
+		<meta property="og:site_name" content="{{ this_app.app_name }} - {{ this_app.app_title}}"/>
+		<meta property="og:description" content="{{ this_app.app_description }}"/>
+
+		<meta name="twitter:title" content="Blog - {{ this_app.app_name }}" />
+		<meta name="twitter:image" content="{{ this_app.app_logo.url }}" />
+		<meta name="twitter:url" content="{% url 'blog:all-blogs' %}" />
+		<meta name="twitter:description" content="{{ this_app.app_description }}" />
+		<meta name="twitter:card" content="summary_large_image" />
+	{% endblock meta_content %}
+
+
 	{% block content %}
 	
 		<!-- Blogs Starts Here -->

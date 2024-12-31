@@ -2,6 +2,34 @@
 {% extends 'base.html' %}
 {% load static %}
 
+	{% block meta_content %}
+		{% if page.seo_page_title %}
+		<title>{{ page.seo_page_title }} - {{ this_app.app_name }}</title>
+		{% else %}
+		<title>{{ page.page_title }} - {{ this_app.app_name }}</title>
+		{% endif %}
+
+		<meta name="description" content="{{ page.seo_page_description }}" />
+		<meta name="keywords" content="{{ page.seo_page_keywords }}" />
+
+		<!-- Facebook and Twitter integration -->
+		<meta property="og:title" content="{{ page.page_title }}"/>
+		{% if page.page_image %}
+		<meta property="og:image" content="{{ page.page_image.url }}"/>
+		{% endif %}
+		<meta property="og:url" content="{% url 'page:page-detail' page.page_slug %}"/>
+		<meta property="og:site_name" content="{{ this_app.app_name }} - {{ this_app.app_title}}"/>
+		<meta property="og:description" content="{{ page.seo_page_description }}"/>
+
+		<meta name="twitter:title" content="{{ page.page_title }}" />
+		{% if page.page_image %}
+		<meta property="twitter:image" content="{{ page.page_image.url }}"/>
+		{% endif %}
+		<meta name="twitter:url" content="{% url 'page:page-detail' page.page_slug %}" />
+		<meta name="twitter:description" content="{{ page.seo_page_description }}" />
+		<meta name="twitter:card" content="summary_large_image" />
+	{% endblock meta_content %}
+
 
 	{% block content %}
 	
