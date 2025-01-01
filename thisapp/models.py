@@ -25,7 +25,7 @@ class AppDetail(models.Model):
 		default='Yes',
 		max_length=10,
 		verbose_name='Book On Whatsapp?',
-		help_text='Select Yes to accept booking on WhatsApp.'
+		help_text='Select Yes to accept booking on WhatsApp. Also make sure Contact Number is added.'
 	)
 	developed_by = models.CharField(max_length=20, blank=True, null=True, verbose_name="Developed By", help_text='Do not change it. Changing it may cause your website to not function correctly.')
 	app_created_at = models.DateTimeField(auto_now_add=True, verbose_name="App Created Date")
