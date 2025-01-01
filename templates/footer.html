@@ -70,7 +70,14 @@
 									<a href="{{ socialmedia.socialmedia_url }}" title="{{ socialmedia.socialmedia_title }}" target="_blank"><i class="{{ socialmedia.socialmedia_icon }}"></i></a>
 								{% endfor %}
 							</p>
-							<p>Made with <i class="icon-heart3"></i> by <a href="https://linktr.ee/vijaythapa" target="_blank">Vijay Thapa</a></p>
+							<p>Copyright &COPY; <script>document.write(new Date().getFullYear());</script> {{ this_app.app_name }}. 
+								Made with <i class="icon-heart3"></i> by 
+								{% if this_app.developed_by == "Vijay Thapa" %}
+								<a href="https://linktr.ee/vijaythapa" target="_blank">{{ this_app.developed_by }}</a>
+								{% else %}
+								{{ this_app.developed_by }}
+								{% endif %}
+							</p>
 						</div>
 					</div>
 					{% endif %}
